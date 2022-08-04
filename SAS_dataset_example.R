@@ -5,12 +5,12 @@ library(tidyverse)
 library(haven)
 
 datayear=2021
-sampyear=2020
+sampyear=2021
 
-setwd('//s0177a/sasdata1/ags/fas')
+directorypath='//s0177a/sasdata1/ags/fas'
 # list.files()
-inputfile=paste("so_y",datayear,"_fa.sas7bdat",sep='')
-# inputfile
+inputfile=paste(directorypath,"/so_y",datayear,"_fa.sas7bdat",sep='')
+ inputfile
 FarmAccount <- read_sas(inputfile)
 names(FarmAccount) <- tolower(names(FarmAccount))
 FarmAccount <- FarmAccount %>% 
