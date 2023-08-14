@@ -11,7 +11,7 @@ sampyear <- 2022
 
 #Input data folders
 FBS_directory_path<- '//s0177a/sasdata1/ags/fas/'
-agstemp_path <- '//s0177a/sasdata1/ags/fas/agstemp/'
+agstemp_path <- '//s0177a/sasdata1/ags/census/agstemp/'
 
 #Read in farm_account data
 FBS_fa_data_file <- paste0("so_y", datayear,"_fa.sas7bdat")
@@ -54,17 +54,17 @@ for (x in colnames(FBS_weights)){
 }
 
 #Read in an agstemp file (not yet working)
-# FTEUnpaid_file <- paste0("FBS", datayear, "_FBI_", sampyear-2000)
-# FTEUnpaid <- tryCatch(
-#   {
-#     FTEUnpaid <- read_sas(FTEUnpaid_file)
-#   },
-#   error = function(e)
-#   {
-#     file.copy(paste0(agstemp_path, FTEUnpaid_file), getwd())
-#     return(read_sas(FTEUnpaid_file))
-#   }
-# )
+FTEUnpaid_file <- paste0("FBS", datayear, "_FTEUnpaid_", sampyear-2000,".sas7bdat")
+FTEUnpaid <- tryCatch(
+  {
+    FTEUnpaid <- read_sas(FTEUnpaid_file)
+  },
+  error = function(e)
+  {
+    file.copy(paste0(agstemp_path, FTEUnpaid_file), getwd())
+    return(read_sas(FTEUnpaid_file))
+  }
+)
 
 #Create a merged dataset with FBI and weights 
 MergedData <- FBS_data_process%>% 
