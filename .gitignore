@@ -3,7 +3,8 @@
 .Rapp.history
 
 # Session Data files
-.RData
+*.[rR][dD][aA][tT][aA]
+*.[rR][dD][sS]
 
 # User-specific files
 .Ruserdata
@@ -39,6 +40,6 @@ vignettes/*.pdf
 .Renviron
 
 #Input datasets
-*.csv
-*.xlsx
-*.sas7bdat
+*.[cC][sS][vV]
+*.[xX][lL][sS]*
+*.[sS][aA][sS]7[bB][dD][aA][tT]
