@@ -53,7 +53,7 @@ for (x in colnames(FBS_weights)){
   attr(FBS_weights[[deparse(as.name(x))]],"format.sas")=NULL
 }
 
-#Read in an agstemp file (not yet working)
+#Read in an agstemp file
 FTEUnpaid_file <- paste0("FBS", datayear, "_FTEUnpaid_", sampyear-2000,".sas7bdat")
 FTEUnpaid <- tryCatch(
   {
