@@ -16,7 +16,9 @@ apply_type_formats <- function(table_name) {
   table_name[setDT(fbs_type_tab), farmtype:=i.fbs_type_words]
   return(table_name)
 }
+ HEAD
 #Manually create a lookup table for farmtype names and numbering
+c8829900b1957aebb6909b62190f971bece91392
 fbs_type_numbers <- c(1:9)
 fbs_type_words <- c("Cereals","General Cropping","Dairy","LFA Sheep","LFA Cattle","LFA Cattle and Sheep","Lowland Livestock","Mixed","All farm types")
 fbs_type_tab <- data.frame(fbs_type_numbers, fbs_type_words)
