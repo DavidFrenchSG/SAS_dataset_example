@@ -106,3 +106,18 @@ MergedData <- apply_type_formats(MergedData)
 mean(MergedData$fa_fbi)
 weighted.mean(MergedData$fa_fbi,MergedData$fbswt)
 weighted.median(MergedData$fa_fbi, MergedData$fbswt, type=1)
+
+## Read in a dataset from opendata platform
+#Need the opendatascot package (installation instructions: https://github.com/datasciencescotland/opendatascot)
+library(opendatascot)
+library(ggplot2)
+#Can use the all datasets function to find the uri of the desired dataset
+all_ods_datasets <- ods_all_datasets()
+#Then use ods_dataset function to read in the dataset
+CHD <- ods_dataset("cereal-and-oilseed-rape-harvest")
+#Plot something
+CHD_process <- CHD %>% 
+  filter(agriculturalMeasure == "yield")
+p <- ggplot(CHD_process, aes(x=refPeriod, y=value, color=crop))+
+  geom_line()
+p
